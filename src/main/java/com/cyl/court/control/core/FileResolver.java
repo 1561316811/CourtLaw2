@@ -1,4 +1,4 @@
-package com.cyl.court.control;
+package com.cyl.court.control.core;
 
 import com.cyl.court.anotation.Bean;
 import com.cyl.court.beanfactory.BeanFactory;
@@ -60,7 +60,6 @@ public class FileResolver {
     }
 
     private String resolveFile(String fileName, String fileCharSet) throws FileNotFoundException, IOException {
-
         FileInputStream fis = null;
         byte[] bs = new byte[1024 * 1024];
         StringBuilder sb = new StringBuilder();
@@ -69,6 +68,7 @@ public class FileResolver {
         while ((length = fis.read(bs)) != -1) {
             sb.append(new String(bs, fileCharSet));
         }
+        fis.close();
         //更新 stringBuilder
         stringBuilderArticle = sb;
         return sb.toString();
@@ -185,4 +185,7 @@ public class FileResolver {
         }
 
     }
+
+
+
 }

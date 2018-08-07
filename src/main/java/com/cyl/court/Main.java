@@ -1,8 +1,7 @@
 package com.cyl.court;
 
 import com.cyl.court.view.MainView;
-import com.cyl.court.core.ViewDispatcher;
-import com.cyl.court.view.TreeStructView;
+import com.cyl.court.control.view.ViewDispatcher;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Map.Entry;

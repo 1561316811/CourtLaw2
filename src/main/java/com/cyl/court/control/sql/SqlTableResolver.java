@@ -4,36 +4,56 @@ import com.cyl.court.anotation.Bean;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.control.sql.ConnSqlServerResolver;
 
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Bean
 public class SqlTableResolver {
 
-    private ConnSqlServerResolver connSqlServerResolver = BeanFactory.getBean(ConnSqlServerResolver.class);
+    private ConnSqlServerResolver connSqlServerResolver
+        = BeanFactory.getBean(ConnSqlServerResolver.class);
 
-    public void run(){
+    private List<String> listTableName = new ArrayList<>();
+
+    public List<String> getListTableName() {
+        return listTableName;
+    }
+
+    /**
+     * 从数据库中获取所有的表名
+     * @return
+     */
+    public List<String> getAllTableName() {
         //1. JDBC连接MYSQL的代码很标准。
-        Connection conn = connSqlServerResolver.getConnection();
 
-
-//2. 下面就是获取表的信息。
+        Connection conn = null;
+        try {
+            conn = connSqlServerResolver.getConnection();
+        } catch (ConnectException e) {
+            e.printStackTrace();
+        }
+        //先清空list中的值
+        listTableName.clear();
+        //2. 下面就是获取表的信息。
         DatabaseMetaData m_DBMetaData = null;
         ResultSet tableRet = null;
         try {
             m_DBMetaData = conn.getMetaData();
-            tableRet = m_DBMetaData.getTables(null, "%","%",new String[]{"TABLE"});
-
-            while(tableRet.next())
+            tableRet = m_DBMetaData.getTables(null, "%", "%", new String[]{"TABLE"});
+            while (tableRet.next()) {
                 System.out.println(tableRet.getString("TABLE_NAME"));
+                listTableName.add(tableRet.getString("TABLE_NAME"));
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
+        return listTableName;
 /*
 //4. 提取表内的字段的名字和类型
         String columnName;

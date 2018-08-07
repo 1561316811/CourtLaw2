@@ -8,7 +8,7 @@ public class BasicWindow {
 
     private Stage stage;
 
-    private Scene  scene;
+    private Scene scene;
 
     private Pane pane;
 

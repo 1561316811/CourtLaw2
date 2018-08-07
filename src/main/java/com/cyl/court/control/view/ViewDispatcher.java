@@ -1,9 +1,9 @@
-package com.cyl.court.core;
+package com.cyl.court.control.view;
 
 
 import com.cyl.court.anotation.View;
 import com.cyl.court.beanfactory.BeanFactory;
-import com.cyl.court.config.CourtAutoPathConfig;
+import com.cyl.court.config.CourtAutoResourcePathConfig;
 import com.cyl.court.util.StringUtils;
 import com.cyl.court.view.BaseView;
 import com.cyl.court.view.BasicWindow;
@@ -32,8 +32,8 @@ public class ViewDispatcher {
         String fxmlName = view.resourcePath();
         String title = view.title();
 
-        CourtAutoPathConfig courtAutoPathConfig =
-                BeanFactory.getBean(CourtAutoPathConfig.class);
+        CourtAutoResourcePathConfig courtAutoPathConfig =
+                BeanFactory.getBean(CourtAutoResourcePathConfig.class);
 
         if(!StringUtils.isEmpty(fxmlName)){
             fxmlName = courtAutoPathConfig.getPath()

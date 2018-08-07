@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -32,7 +33,10 @@ import info.monitorenter.cpdetector.io.UnicodeDetector;
 @Bean
 public class ConnSqlServerResolver {
 
-    public Connection getConnection() {
+    public Connection getConnection() throws ConnectException {
+        if(connection == null){
+            throw new ConnectException("you must invoke connSqlServer method firstly!");
+        }
         return connection;
     }
 
@@ -68,13 +72,15 @@ public class ConnSqlServerResolver {
     }
 
 
-    public void connSqlServer(File fileJar, String user, String pwd,
+    public Connection connSqlServer(File fileJar, String user, String pwd,
                               String url, String driverName, Callback callback) {
         try {
             connection = connSqlServer(fileJar, user, pwd, url, driverName);
         } catch (Exception e) {
             e.printStackTrace();
+            callback.fail("连接失败");
         }
+        return connection;
     }
 
     private Connection connSqlServer(File fileJar, String user, String pwd,

@@ -66,9 +66,9 @@ public class ConnectSqlView implements BaseView, Initializable {
 
     @FXML
     private void connect(ActionEvent event){
-
         System.out.println("connect");
     }
+
     @FXML
     private void testConnect(ActionEvent event){
 
