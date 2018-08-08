@@ -1,6 +1,8 @@
 package com.cyl.court.util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,38 +10,40 @@ import java.util.Objects;
 
 public class JsonIO {
 
-  public static void write(String data, String filePath) throws IOException {
+  /**
+   * 字符串的形式写入
+   *
+   * @param data
+   * @param filePath
+   * @throws IOException
+   */
+  public static void writeString(String data, String filePath) throws IOException {
 
     Objects.requireNonNull(filePath);
     if (StringUtils.isEmpty(filePath))
       throw new RuntimeException("FilePath can not be empty!");
+
     FileWriter fw = null;
-    File file = new File(filePath);
-
-    file.getParentFile().mkdirs();
-
-    if (!file.exists()) {
-      file.createNewFile();
-    }
-
-    fw = new FileWriter(file, false);
+    fw = new FileWriter(repairNonFile(filePath), false);
     fw.write(data.toCharArray());
-    if (fw != null) {
-      try {
-        fw.close();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
+    fw.close();
+
   }
 
-  public static String read(String filePath) throws IOException {
+  /**
+   * 字符串的形式读取
+   *
+   * @param filePath
+   * @return
+   * @throws IOException
+   */
+  public static String readString(String filePath) throws IOException {
     Objects.requireNonNull(filePath);
     if (StringUtils.isEmpty(filePath))
       throw new RuntimeException("FilePath can not be empty!");
 
     File file = new File(filePath);
-    if(!file.exists()){
+    if (!file.exists()) {
       file.getParentFile().mkdirs();
       file.createNewFile();
       return null;
@@ -66,6 +70,56 @@ public class JsonIO {
       }
     }
     return sb.toString();
+  }
+
+  /**
+   * 字节流的形式写入文件
+   *
+   * @param data
+   * @param filePath
+   * @throws IOException
+   */
+  public static void writeStream(String data, String filePath) throws IOException {
+    StringUtils.requiredNoNullAndEmpty(filePath);
+
+    FileOutputStream fos = new FileOutputStream(repairNonFile(filePath));
+    fos.write(data.getBytes());
+    fos.close();
+  }
+
+  /**
+   *字节流读取文件
+   */
+  public static String readStream(String filePath) throws IOException {
+
+    StringUtils.requiredNoNullAndEmpty(filePath);
+    repairNonFile(filePath);
+    StringBuilder sb = new StringBuilder();
+    FileInputStream fis = new FileInputStream(repairNonFile(filePath));
+    byte[] bs = new byte[1024 * 1024];
+    int length ;
+    while ((length = fis.read(bs)) != -1) {
+      String metaData = new String(bs,0,length);
+      sb.append(metaData);
+    }
+    if (fis != null) {
+      fis.close();
+    }
+    return sb.toString();
+}
+
+  /**
+   * 修复不存在的文件
+   *
+   * @param filePath
+   */
+  public static File repairNonFile(String filePath) throws IOException {
+    File file = new File(filePath);
+    if (!file.exists()) {
+      file.getParentFile().mkdirs();
+      file.createNewFile();
+    }
+    return file;
   }
 
 }

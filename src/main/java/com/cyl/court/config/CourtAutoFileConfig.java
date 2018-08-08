@@ -1,8 +1,8 @@
 package com.cyl.court.config;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 
-@Bean
+@Resolver
 public class CourtAutoFileConfig {
 
     private static  final String fileType = "*.txt,*.sql,*.doc,*.pdf";

@@ -1,5 +1,7 @@
 package com.cyl.court.util;
 
+import java.util.Objects;
+
 public class StringUtils {
 
     public static boolean isEmpty(String str){
@@ -9,5 +11,11 @@ public class StringUtils {
         return false;
     }
 
+
+    public static void requiredNoNullAndEmpty(String str){
+        Objects.requireNonNull(str);
+        if (StringUtils.isEmpty(str))
+            throw new RuntimeException("str can not be empty!");
+    }
 
 }

@@ -1,12 +1,9 @@
 package com.cyl.court.beanfactory;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
-
-import javax.jws.Oneway;
 
 public class BeanFactory {
 
@@ -32,7 +29,7 @@ public class BeanFactory {
 
     public <T> T getMapBean(Class<T> beanClass){
 
-        if(beanClass.getAnnotation(Bean.class) == null){
+        if(beanClass.getAnnotation(Resolver.class) == null){
             throw new RuntimeException(beanClass.getName() + " is not a bean !");
         }
 
@@ -59,7 +56,7 @@ public class BeanFactory {
         if(bean == null){
             throw  new RuntimeException("bean can not be null");
         }
-        if(bean.getClass().getAnnotation(Bean.class) == null){
+        if(bean.getClass().getAnnotation(Resolver.class) == null){
             throw  new RuntimeException(bean.getClass().getName() + " is not a bean !");
         }
         beanMaps.put(bean.getClass().getName(), bean);

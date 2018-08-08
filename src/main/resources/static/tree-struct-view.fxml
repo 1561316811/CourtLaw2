@@ -2,15 +2,16 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.TreeStructView">
+<AnchorPane id="AnchorPane" fx:id="levelProp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.TreeStructView">
   <children>
-    <VBox alignment="TOP_CENTER" fillWidth="true" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <VBox alignment="TOP_CENTER" fillWidth="true" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
           <children>
@@ -20,15 +21,25 @@
                   <font>
                     <Font size="20.0" />
                   </font>
+                  <HBox.margin>
+                    <Insets bottom="20.0" />
+                  </HBox.margin>
                 </Label>
               </children>
             </HBox>
-            <Button fx:id="delLine" mnemonicParsing="false" onAction="#delLine" onDragDetected="#delLine" text="删除行">
+          </children>
+          <padding>
+            <Insets left="20.0" right="20.0" />
+          </padding>
+        </HBox>
+        <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <Button fx:id="delLine" mnemonicParsing="false" onAction="#delLine" onDragDetected="#delLine" text="del line">
               <HBox.margin>
                 <Insets left="20.0" fx:id="x1" />
               </HBox.margin>
             </Button>
-            <Button fx:id="addLine" mnemonicParsing="false" onAction="#addLine" text="添加行" HBox.margin="$x1" />
+            <Button fx:id="addLine" mnemonicParsing="false" onAction="#addLine" text="add line" HBox.margin="$x1" />
           </children>
           <padding>
             <Insets left="20.0" right="20.0" />
@@ -37,45 +48,34 @@
             <Insets bottom="20.0" />
           </VBox.margin>
         </HBox>
-        <ScrollPane id="ScrollPane" prefViewportHeight="59.0" prefViewportWidth="560.0" VBox.vgrow="ALWAYS">
-          <content>
-            <GridPane fx:id="treeGridPane" alignment="CENTER" focusTraversable="false" gridLinesVisible="true" hgap="0.0" prefHeight="-1.0" prefWidth="-1.0">
-              <children>
-                <Label alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="4.0" text="序号" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                <Label text="名称" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                <Label text="正则表达式" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
-                <Label text="字段名" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                <Label text="高亮颜色" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-              </children>
-              <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="140.0" minWidth="10.0" prefWidth="50.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="135.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="147.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="101.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="101.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" valignment="CENTER" vgrow="ALWAYS" />
-              </rowConstraints>
-            </GridPane>
-          </content>
+        <GridPane fx:id="propGridPane" alignment="CENTER" disable="false" focusTraversable="false" gridLinesVisible="true" hgap="0.0" prefHeight="-1.0" prefWidth="659.0" visible="true" VBox.vgrow="NEVER">
+          <children>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="4.0" text="序号" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <Label text="名称" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+            <Label text="正则表达式" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+            <Label text="高亮颜色" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="-Infinity" percentWidth="-1.0" prefWidth="30.0" />
+            <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="100.0" minWidth="-Infinity" percentWidth="-1.0" prefWidth="80.0" />
+            <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="-1.0" prefWidth="300.0" />
+            <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="100.0" minWidth="-Infinity" percentWidth="-1.0" prefWidth="100.0" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="ALWAYS" />
+          </rowConstraints>
           <VBox.margin>
-            <Insets />
+            <Insets left="20.0" right="20.0" top="10.0" />
           </VBox.margin>
-        </ScrollPane>
+        </GridPane>
         <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
           <children>
-            <Button id="cancle" fx:id="saveToFile" mnemonicParsing="false" onAction="#saveToFile" text="保存">
+            <Button id="finish" fx:id="next" mnemonicParsing="false" onAction="#next" text="next">
               <HBox.margin>
-                <Insets right="10.0" />
+                <Insets left="10.0" right="10.0" />
               </HBox.margin>
             </Button>
-            <Button id="cancle" fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="取消" />
-            <Button fx:id="finish" mnemonicParsing="false" onAction="#finish" text="完成">
-              <HBox.margin>
-                <Insets left="10.0" />
-              </HBox.margin>
-            </Button>
+            <Button id="cancle" fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="cancle" />
           </children>
           <padding>
             <Insets right="20.0" />
@@ -90,4 +90,7 @@
       </padding>
     </VBox>
   </children>
+  <padding>
+    <Insets />
+  </padding>
 </AnchorPane>

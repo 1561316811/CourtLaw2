@@ -1,6 +1,6 @@
 package com.cyl.court.config;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -10,7 +10,7 @@ import java.net.URL;
  *外部资源文件配置，
  * 比如可读写的配置文件
   */
-@Bean
+@Resolver
 public class CourtAutoPropertyConfig {
 
 
@@ -34,7 +34,21 @@ public class CourtAutoPropertyConfig {
         }
     }
 
-    private static final String treePath = basicPath + "property"+ File.separator +"tree.json";
+    private static final String treePathS = basicPath + "property"+ File.separator +"tree.json";
+
+    private String propPath = treePathS;
+
+    private static final String sqlConnDataPathS = basicPath + "property/sql";
+
+    private String sqlConnDataPath = sqlConnDataPathS;
+
+    public String getSqlConnDataPath() {
+        return sqlConnDataPath;
+    }
+
+    public void setSqlConnDataPath(String sqlConnDataPath) {
+        this.sqlConnDataPath = sqlConnDataPath;
+    }
 
     public String getPropPath() {
         return propPath;
@@ -43,7 +57,5 @@ public class CourtAutoPropertyConfig {
     public void setPropPath(String propPath) {
         this.propPath = propPath;
     }
-
-    private String propPath = treePath;
 
 }

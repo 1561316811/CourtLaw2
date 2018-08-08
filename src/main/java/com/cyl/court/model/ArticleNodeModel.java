@@ -8,10 +8,10 @@ public class ArticleNodeModel {
     //父节点
     private ArticleNodeModel parent;
 
-    private List<ArticleNodeModel> children;
+    private List<ArticleNodeModel> children = new ArrayList<>();
 
-    //本节点在当前所在的位置
-    private int index;
+    //本节点在当前所在树的层次
+    private int level;
 
     //本节点内容开始
     private int start;
@@ -22,11 +22,13 @@ public class ArticleNodeModel {
     //本节点录入的内容结束
     private int endContext;
 
-    public List<ArticleNodeModel> initChildrenList() {
+
+
+  /*  public List<ArticleNodeModel> initChildrenList() {
         if (this.children == null)
             this.children = new ArrayList<>();
         return this.children;
-    }
+    }*/
 
     public List<ArticleNodeModel> getChildren() {
 //        if (this.children == null) {
@@ -39,12 +41,12 @@ public class ArticleNodeModel {
         this.children = children;
     }
 
-    public int getIndex() {
-        return index;
+    public int getLevel() {
+        return level;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public ArticleNodeModel getParent() {

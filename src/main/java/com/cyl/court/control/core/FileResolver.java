@@ -1,8 +1,9 @@
 package com.cyl.court.control.core;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.config.CourtAutoFileConfig;
+import com.cyl.court.event.BasicCallbackImpl;
 import com.cyl.court.event.Callback;
 import com.cyl.court.model.ArticleNodeModel;
 import com.cyl.court.model.ArticleStructModel;
@@ -12,7 +13,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -24,10 +27,14 @@ import info.monitorenter.cpdetector.io.ParsingDetector;
 import info.monitorenter.cpdetector.io.UnicodeDetector;
 
 
-@Bean
+@Resolver
 public class FileResolver {
 
+    private Map<String, ArticleNodeModel> articleNodeModelMap = new HashMap<>();
+
     private StringBuilder stringBuilderArticle;
+
+    private FilterProcess filterProcess = new FilterProcess();
 
     public void readFile(String fileName, Callback callback) {
 
@@ -66,7 +73,7 @@ public class FileResolver {
         fis = new FileInputStream(fileName);
         int length = 0;
         while ((length = fis.read(bs)) != -1) {
-            sb.append(new String(bs, fileCharSet));
+            sb.append(new String(bs,0,length, fileCharSet));
         }
         fis.close();
         //更新 stringBuilder
@@ -112,22 +119,22 @@ public class FileResolver {
      *
      * @return
      */
-    public boolean resolveFile(StringBuilder sb , ArticleNodeModel articleNode, Callback callback) {
+    public ArticleNodeModel resolveFile(StringBuilder sb ,  Callback callback) {
 
-        Objects.requireNonNull(articleNode);
+//        Objects.requireNonNull(articleNode);
         Objects.requireNonNull(sb);
 
         //解析标准
-        List<ArticleStructModel> structList = treeLevelResolver.getArticleStructList();
+        List<ArticleStructModel> structList = treeLevelResolver.getArticleStructList(new BasicCallbackImpl());
 
         if(structList == null || structList.size() == 0){
             callback.fail("请先配置筛选树");
-            return false;
+            return null;
         }
 
         if( stringBuilderArticle == null || stringBuilderArticle.length() == 0){
            callback.fail("请先导入文本");
-           return false;
+           return null;
         }
 
         //解析数据
@@ -136,15 +143,21 @@ public class FileResolver {
         //装入数据
         sb.append(article);
 
+        ArticleNodeModel articleNode = new ArticleNodeModel();
+
         articleNode.setParent(null);
         articleNode.setStart(0);
         articleNode.setEndContext(article.length());
         articleNode.setEndAll(article.length());
+        articleNode.setLevel(0);
 
+        //分割文本
         splitArticle(structList, 0,
                 article, articleNode);
 
-        return true;
+        articleNode = filterProcess.doFilter(articleNode, sb);
+
+        return articleNode;
     }
 
     private void splitArticle(List<ArticleStructModel> structList, int index,
@@ -152,7 +165,7 @@ public class FileResolver {
 
         if(structList.size() <= index ) return;
 
-        articleNodeParent.initChildrenList();
+//        articleNodeParent.initChildrenList();
         ArticleStructModel articleStruct = structList.get(index);
         Pattern pattern = Pattern.compile(articleStruct.getRegex());
 
@@ -179,7 +192,8 @@ public class FileResolver {
             } else {
                 articleNodeChild.setEndAll(articleNodeParent.getEndAll());
             }
-
+            //设置树的层次
+            articleNodeChild.setLevel(index + 1);
             articleNodeParent.getChildren().add(articleNodeChild);
             splitArticle(structList, index + 1, article, articleNodeChild);
         }

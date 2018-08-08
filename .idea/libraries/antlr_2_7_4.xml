@@ -3,8 +3,8 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/src/main/lib/antlr-2.7.4.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/main/lib/chardet-1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/lib/jargs-1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/src/main/lib/cpdetector_1.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/main/lib/jargs-1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

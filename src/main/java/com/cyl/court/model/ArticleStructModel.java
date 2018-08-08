@@ -8,7 +8,7 @@ public class ArticleStructModel {
 
     String regex;
 
-    String field;
+    String tableField;
 
     String color;
 
@@ -36,12 +36,12 @@ public class ArticleStructModel {
         this.regex = regex;
     }
 
-    public String getField() {
-        return field;
+    public String getTableField() {
+        return tableField;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public void setTableField(String tableField) {
+        this.tableField = tableField;
     }
 
     public String getColor() {

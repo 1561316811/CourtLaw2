@@ -1,13 +1,11 @@
 package com.cyl.court.config;
 
-import com.cyl.court.anotation.Bean;
-
-import java.io.File;
+import com.cyl.court.anotation.Resolver;
 
 /**
  * 内部资源文件配置属性，一旦形成jar文件那便不能修改
  */
-@Bean
+@Resolver
 public class CourtAutoResourcePathConfig {
 
     private static final String pathName = "static/";

@@ -1,7 +1,7 @@
 package com.cyl.court;
 
 import com.cyl.court.view.MainView;
-import com.cyl.court.control.view.ViewDispatcher;
+import com.cyl.court.view.ViewDispatcher;
 
 import java.util.AbstractMap.SimpleEntry;
 import java.util.Map.Entry;
@@ -82,6 +82,7 @@ public class Main extends Application {
     public void start(Stage stage) {
 //        stage.setTitle("Menu Sample");
 
+//        ViewDispatcher.open(FieldMapView.class, Modality.WINDOW_MODAL);
         ViewDispatcher.open(MainView.class, Modality.WINDOW_MODAL);
 //        ViewDispatcher.open(TreeStructView.class, Modality.WINDOW_MODAL);
 

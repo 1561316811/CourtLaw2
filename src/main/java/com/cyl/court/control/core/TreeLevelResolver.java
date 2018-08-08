@@ -1,8 +1,10 @@
 package com.cyl.court.control.core;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.config.CourtAutoPropertyConfig;
+import com.cyl.court.control.basic.BasicResolver;
+import com.cyl.court.control.basic.Persistence;
 import com.cyl.court.event.Callback;
 import com.cyl.court.model.ArticleStructModel;
 import com.cyl.court.util.JsonIO;
@@ -10,62 +12,84 @@ import com.cyl.court.util.JsonUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 
-@Bean
-public class TreeLevelResolver {
+@Resolver
+public class TreeLevelResolver implements Persistence , BasicResolver {
 
   List<ArticleStructModel> articleStructList;
 
   public TreeLevelResolver() {
   }
 
-  public List<ArticleStructModel> getArticleStructList() {
+  public List<ArticleStructModel> getArticleStructList(Callback callback) {
     if (this.articleStructList == null) {
-      this.articleStructList = readProperty(null);
+      try {
+        this.articleStructList = readProperty();
+      } catch (IOException e) {
+        e.printStackTrace();
+        callback.fail("读取配置文件失败！");
+      }
     }
     return articleStructList;
   }
 
-  public void uploadTreeStruct(List<ArticleStructModel> articleStructList) {
+  /**
+   * 上传数据的时候，自动保存
+   * @param articleStructList
+   * @param callback
+   */
+  public void uploadTreeStruct(List<ArticleStructModel> articleStructList,Callback callback) {
     this.articleStructList = articleStructList;
+    saveProperty(articleStructList,callback);
   }
 
   private CourtAutoPropertyConfig courtAutoPropertyConfig = BeanFactory.getBean(CourtAutoPropertyConfig.class);
 
-  public void saveProperty(List<ArticleStructModel> articleStructList, Callback callback) {
+  private void saveProperty(List<ArticleStructModel> articleStructList, Callback callback) {
 
     this.articleStructList = articleStructList;
 
     Objects.requireNonNull(callback);
     String data = JsonUtil.toJsonDisableHtmlEscaping(articleStructList);
     try {
-      JsonIO.write(data, courtAutoPropertyConfig.getPropPath());
+      JsonIO.writeString(data, courtAutoPropertyConfig.getPropPath());
     } catch (IOException e) {
       e.printStackTrace();
       callback.fail("保存失败");
       return;
     }
     callback.success("保存成功");
+
   }
 
-  public List<ArticleStructModel> readProperty(Callback callback) {
+  private List<ArticleStructModel> readProperty() throws IOException {
 
+      return JsonUtil.fromJson(new TypeToken<ArrayList<ArticleStructModel>>() {
+      }.getType(), read());
+
+
+  }
+
+  @Override
+  public String read() throws IOException {
     String data = null;
-    try {
-      data = JsonIO.read(courtAutoPropertyConfig.getPropPath());
-    } catch (IOException e) {
-      e.printStackTrace();
-      if (callback != null)
-        callback.fail("读取配置文件失败！");
-    }
-    return JsonUtil.fromJson(new TypeToken<ArrayList<ArticleStructModel>>() {
-    }.getType(), data);
-
+    data = JsonIO.readString(courtAutoPropertyConfig.getPropPath());
+    return data;
   }
 
+  @Override
+  public void write(Object dataObj) throws IOException {
+    JsonIO.writeString(JsonUtil.toJsonDisableHtmlEscaping(dataObj), courtAutoPropertyConfig.getPropPath());
+  }
+
+  @Override
+  public void refresh() throws IOException {
+    this.articleStructList = readProperty();
+  }
 
 }

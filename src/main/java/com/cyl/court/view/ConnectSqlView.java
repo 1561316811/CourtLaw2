@@ -1,6 +1,6 @@
 package com.cyl.court.view;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 import com.cyl.court.anotation.View;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.control.sql.ConnSqlServerResolver;
@@ -20,20 +20,18 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
-@Bean
+@Resolver
 @View(resourcePath = "connect-sql-view", title = "Connect to sql")
-public class ConnectSqlView implements BaseView, Initializable {
+public class ConnectSqlView extends AbstractView implements BaseView, Initializable {
 
     @FXML
     private Pane rootPane;
-
     @FXML
     private TextField userName;
-
     @FXML
     private PasswordField password;
-
     @FXML
     private TextField url;
     @FXML
@@ -66,6 +64,16 @@ public class ConnectSqlView implements BaseView, Initializable {
 
     @FXML
     private void connect(ActionEvent event){
+        connSqlServer.connSqlServer(fileJar,
+            userName.getText(), password.getText(),
+            url.getText(), driverName.getText(),
+            new TestConnectCallback(){
+                @Override
+                public <T> void success(T t) {
+                    super.success(t);
+                    closeWindow();
+                }
+            });
         System.out.println("connect");
     }
 
@@ -79,13 +87,25 @@ public class ConnectSqlView implements BaseView, Initializable {
                 url.getText(), driverName.getText(),
                 new TestConnectCallback());
 
-        System.out.println("addJar");
+        System.out.println("testConnect");
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         BeanFactory.hostBean(this);
+        SqlConnDataModel sqlConnData = connSqlServer.getCurConnData();
+        if(sqlConnData == null)
+            return ;
+        userName.setText(sqlConnData.getUserName());
+        password.setText(sqlConnData.getPassword());
+        url.setText(sqlConnData.getUrl());
+        driverName.setText(sqlConnData.getDriverName());
+        fileJar = new File(sqlConnData.getJarPath());
+//        System.out.println(sqlConnData.getJarPath());
+        String[] temp = sqlConnData.getJarPath().split(File.separator.equals("\\") ? "\\\\" : File.separator);
+        jarPath.setText(temp[temp.length - 1]);
     }
+
 
     class TestConnectCallback implements Callback{
 

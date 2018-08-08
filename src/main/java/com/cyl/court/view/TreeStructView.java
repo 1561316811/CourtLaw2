@@ -1,6 +1,6 @@
 package com.cyl.court.view;
 
-import com.cyl.court.anotation.Bean;
+import com.cyl.court.anotation.Resolver;
 import com.cyl.court.anotation.View;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.control.core.TreeLevelResolver;
@@ -8,7 +8,6 @@ import com.cyl.court.event.BasicCallbackImpl;
 import com.cyl.court.model.ArticleStructModel;
 import com.cyl.court.util.StringUtils;
 import com.cyl.court.util.ViewUtil;
-import com.google.gson.Gson;
 
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -25,13 +24,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-@Bean
+@Resolver
 @View(title = "属性配置", resourcePath = "tree-struct-view")
-public class TreeStructView implements BaseView, Initializable {
+public class TreeStructView extends AbstractView implements BaseView, Initializable {
+
+  public AnchorPane getLevelProp() {
+    return levelProp;
+  }
+
+  @FXML
+  private AnchorPane levelProp;
+
+  {
+//    levelProp.getScene().get
+//    getStage().set
+  }
 
   private GridPaneNode gridPaneNode;
 
@@ -42,7 +55,7 @@ public class TreeStructView implements BaseView, Initializable {
   }
 
   @FXML
-  GridPane treeGridPane;
+  GridPane propGridPane;
 
   @FXML
   Button addLine;
@@ -56,6 +69,8 @@ public class TreeStructView implements BaseView, Initializable {
 
   }
 
+
+
   @FXML
   Button delLine;
 
@@ -63,12 +78,8 @@ public class TreeStructView implements BaseView, Initializable {
   private void delLine(ActionEvent event) {
 
     gridPaneNode.delRow();
-//        if(!gridPaneNode.delRow()){
-//        ViewUtil.f_alert_informationDialog("提示", "经费不足，待开发");
-//            return ;
-//        }
-
     System.out.println("delLine");
+
   }
 
   @FXML
@@ -82,16 +93,31 @@ public class TreeStructView implements BaseView, Initializable {
   }
 
   @FXML
-  Button finish;
+  Button next;
 
   private TreeLevelResolver treeLevelResolver = BeanFactory.getBean(TreeLevelResolver.class);
 
   @FXML
-  public void finish(ActionEvent event) {
+  public void next(ActionEvent event) {
 
     if (gridPaneNode.checkInput()) {
       BeanFactory.getBean(TreeLevelResolver.class)
-          .uploadTreeStruct(gridPaneNode.getData());
+          .uploadTreeStruct(gridPaneNode.getData(), new BasicCallbackImpl(){
+            @Override
+            public <T> void fail(T t) {
+              super.fail(t);
+              ViewUtil.f_alert_informationDialog("错误！", "文件存储失败！");
+            }
+
+            @Override
+            public <T> void success(T t) {
+              Pane pane = ViewDispatcher.loadFxml(FieldMapView.class);
+              levelProp.getScene().setRoot(pane);
+            }
+          });
+
+      //保存数据
+//      treeLevelResolver.saveProperty(gridPaneNode.getData(), new BasicCallbackImpl());
     }
 
     System.out.println("finish");
@@ -99,7 +125,7 @@ public class TreeStructView implements BaseView, Initializable {
   }
 
 
-  @FXML
+  /*@FXML
   Button saveToFile;
 
   @FXML
@@ -107,10 +133,11 @@ public class TreeStructView implements BaseView, Initializable {
 
     Gson gson = new Gson();
 //        String str = gson.toJson(gridPaneNode.getData());
+
     treeLevelResolver.saveProperty(gridPaneNode.getData(), new BasicCallbackImpl());
     System.out.println("saveToFile");
 
-  }
+  }*/
 
 
   @Override
@@ -118,7 +145,8 @@ public class TreeStructView implements BaseView, Initializable {
     BeanFactory.hostBean(this);
 
     List<ArticleStructModel> articleStructS =
-        treeLevelResolver.readProperty(new BasicCallbackImpl());
+        treeLevelResolver.getArticleStructList(new BasicCallbackImpl());
+
     if (articleStructS != null)
       for (ArticleStructModel articleStruct : articleStructS) {
         gridPaneNode.newRowNodes(articleStruct);
@@ -143,7 +171,7 @@ public class TreeStructView implements BaseView, Initializable {
       final Label label = new Label();
       final TextField tfName = new TextField();
       final TextField tfRegex = new TextField();
-      final TextField tfFieldName = new TextField();
+//      final TextField tfFieldName = new TextField();
       ColorPicker cp;
 
       public ArticleStructModel extractData(Node[] node) {
@@ -152,8 +180,7 @@ public class TreeStructView implements BaseView, Initializable {
         articleStruct.setLevel(((Label) node[0]).getText());
         articleStruct.setTitleName(((TextField) node[1]).getText());
         articleStruct.setRegex(((TextField) node[2]).getText());
-        articleStruct.setField(((TextField) node[3]).getText());
-        articleStruct.setColor(((ColorPicker) node[4]).getValue().toString());
+        articleStruct.setColor(((ColorPicker) node[3]).getValue().toString());
 
         return articleStruct;
       }
@@ -169,7 +196,7 @@ public class TreeStructView implements BaseView, Initializable {
           num = Integer.parseInt(articleStruct.getLevel());
           label.setText(articleStruct.getLevel());
           tfName.setText(articleStruct.getTitleName());
-          tfFieldName.setText(articleStruct.getField());
+//          tfFieldName.setText(articleStruct.getField());
           tfRegex.setText(articleStruct.getRegex());
           cp = new ColorPicker(Color.web(articleStruct.getColor()));
         }
@@ -178,7 +205,7 @@ public class TreeStructView implements BaseView, Initializable {
         label.setAccessibleText(num + "");
         tfName.setAccessibleText(num + "");
         tfRegex.setAccessibleText(num + "");
-        tfFieldName.setAccessibleText(num + "");
+//        tfFieldName.setAccessibleText(num + "");
         cp.setAccessibleText(num + "");
 
       }
@@ -209,7 +236,7 @@ public class TreeStructView implements BaseView, Initializable {
 
     public void newRowNodes(ArticleStructModel articleStruct) {
       Node[] nodes = new RowNodes(num, articleStruct).nodes();
-      treeGridPane.addRow(num, nodes);
+      propGridPane.addRow(num, nodes);
       listNodes.add(nodes);
       num++;
 
@@ -230,7 +257,7 @@ public class TreeStructView implements BaseView, Initializable {
       num--;
 
       for (Node n : listNodes.get(listNodes.size() - 1)) {
-        treeGridPane.getChildren().remove(n);
+        propGridPane.getChildren().remove(n);
 //                treeGridPane.getRowConstraints().remove(num - 1);
       }
       listNodes.remove(listNodes.size() - 1);
@@ -242,7 +269,7 @@ public class TreeStructView implements BaseView, Initializable {
     }
 
     public boolean checkInput() {
-      for (Node node : treeGridPane.getChildren()) {
+      for (Node node : propGridPane.getChildren()) {
         if (node instanceof TextField) {
           String data = ((TextField) node).getText();
           if (StringUtils.isEmpty(data)) {
