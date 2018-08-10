@@ -21,8 +21,11 @@ public class FilterChain implements ArticleFilter {
 
   @Override
   public void doFilter(ArticleNodeContextModel articleNode) {
-    if (index == articleFilters.size()) return;
-    articleFilters.get(index).doFilter(articleNode);
+
+    for (ArticleFilter articleFilter : articleFilters) {
+      articleFilter.doFilter(articleNode);
+    }
+
   }
 
 

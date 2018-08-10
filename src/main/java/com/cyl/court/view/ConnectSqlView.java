@@ -106,6 +106,11 @@ public class ConnectSqlView extends AbstractView implements BaseView, Initializa
         jarPath.setText(temp[temp.length - 1]);
     }
 
+    @Override
+    public Pane getRootPane() {
+        return rootPane;
+    }
+
 
     class TestConnectCallback implements Callback{
 

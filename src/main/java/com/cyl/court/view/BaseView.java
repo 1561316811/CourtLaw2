@@ -4,12 +4,18 @@ import java.lang.reflect.Field;
 import java.util.Objects;
 
 import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public interface BaseView {
 
+  Pane getRootPane();
+
   default Stage getStage() {
-    Stage stage = null;
+
+    return ((Stage)getRootPane().getScene().getWindow());
+
+   /* Stage stage = null;
     for (Field f : this.getClass().getDeclaredFields()) {
       f.setAccessible(true);
       try {
@@ -25,7 +31,7 @@ public interface BaseView {
       }
       f.setAccessible(false);
     }
-    return stage;
+    return stage;*/
   }
 
   ;

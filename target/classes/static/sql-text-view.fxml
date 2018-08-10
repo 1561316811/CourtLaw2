@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<StackPane id="StackPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.SqlTextView">
+  <children>
+    <AnchorPane  maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+      <children>
+        <BorderPane prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
+          <bottom>
+            <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0" BorderPane.alignment="TOP_RIGHT">
+              <children>
+                <Button fx:id="insert" mnemonicParsing="false" onAction="#insert" text="insert">
+                  <HBox.margin>
+                    <Insets right="10.0" />
+                  </HBox.margin>
+                </Button>
+                <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="cancel" />
+                <Button fx:id="copy" mnemonicParsing="false" onAction="#copy" text="copy">
+                  <HBox.margin>
+                    <Insets left="10.0" />
+                  </HBox.margin>
+                </Button>
+              </children>
+              <BorderPane.margin>
+                <Insets bottom="20.0" right="20.0" />
+              </BorderPane.margin>
+            </HBox>
+          </bottom>
+          <center>
+            <TextArea fx:id="sqlText" prefWidth="-1.0" wrapText="true">
+              <BorderPane.margin>
+                <Insets />
+              </BorderPane.margin>
+            </TextArea>
+          </center>
+          <top>
+            <CheckBox fx:id="editable" disable="false" mnemonicParsing="false" onAction="#editable" selected="false" text="editable">
+              <BorderPane.margin>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+              </BorderPane.margin>
+            </CheckBox>
+          </top>
+        </BorderPane>
+      </children>
+    </AnchorPane>
+  </children>
+</StackPane>

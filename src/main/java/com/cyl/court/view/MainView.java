@@ -13,6 +13,7 @@ import com.cyl.court.util.ViewUtil;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -34,6 +36,9 @@ import javafx.stage.Modality;
 @Resolver
 @View(resourcePath = "main-view", title = "法律文书录入系统")
 public class MainView extends AbstractView implements BaseView, Initializable {
+
+  @FXML
+  private Pane rootPane;
 
   MenuBar menuBar = new MenuBar();
 
@@ -65,12 +70,24 @@ public class MainView extends AbstractView implements BaseView, Initializable {
   Button resolve;
 
   @FXML
+  Button generateSql;
+
+  @FXML
+  private void generateSql(ActionEvent event) {
+//    List<String> sqlList =  fileResolver.generateSql(new BasicCallbackImpl());
+
+    ViewDispatcher.open(SqlTextView.class, Modality.APPLICATION_MODAL);
+    System.out.println("generateSql");
+  }
+
+  @FXML
   private void resolve(ActionEvent event) {
     StringBuilder sb = new StringBuilder();
-    ArticleNodeModel rootNode = new ArticleNodeModel();
-
-    if (fileResolver.resolveFile(sb, rootNode, new BasicCallbackImpl())) {
+    ArticleNodeModel rootNode = fileResolver.resolveFile(sb, new BasicCallbackImpl());
+    if (rootNode != null) {
       inputLevelTreeViewData(sb.toString(), rootNode);
+
+      generateSql.setDisable(false);
     }
   }
 
@@ -113,6 +130,13 @@ public class MainView extends AbstractView implements BaseView, Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     BeanFactory.hostBean(this);
+
+    generateSql.setDisable(true);
+  }
+
+  @Override
+  public Pane getRootPane() {
+    return rootPane;
   }
 
   private class OpenFileCallback implements Callback {

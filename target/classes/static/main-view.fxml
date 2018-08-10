@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" disable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.MainView">
+  <children>
+    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open File" fx:id="fOpenFile" />
+                <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" fx:id="fExit" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="prefrence">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#treeView" text="Add Template" fx:id="treeView" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Connect">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#connectSql" text="Connect Sql Server" fx:id="cSql" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Help" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+        <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <Button fx:id="generateSql" mnemonicParsing="false" onAction="#generateSql" text="generate sql">
+              <HBox.margin>
+                <Insets right="10.0" />
+              </HBox.margin>
+            </Button>
+            <Button fx:id="resolve" graphicTextGap="0.0" mnemonicParsing="false" onAction="#resolve" text="Run" HBox.hgrow="NEVER" />
+          </children>
+          <VBox.margin>
+            <Insets left="20.0" right="20.0" />
+          </VBox.margin>
+        </HBox>
+        <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+          <children>
+            <SplitPane disable="false" dividerPositions="0.2506265664160401" focusTraversable="true" opacity="1.0" orientation="HORIZONTAL" prefHeight="-1.0" prefWidth="-1.0" visible="true" HBox.hgrow="ALWAYS">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                  <children>
+                    <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <tabs>
+                        <Tab text="我的文档">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TreeView id="treeView" fx:id="levelTreeView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                      </tabs>
+                    </TabPane>
+                  </children>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                  <children>
+                    <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <Text fx:id="filePathText" fontSmoothingType="GRAY" strikethrough="false" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="LEFT" underline="false">
+                          <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                          </VBox.margin>
+                        </Text>
+                        <TextArea fx:id="testArea" editable="false" prefHeight="-1.0" prefWidth="-1.0" text="" wrapText="true" VBox.vgrow="ALWAYS" />
+                      </children>
+                    </VBox>
+                  </children>
+                </AnchorPane>
+              </items>
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
+            </SplitPane>
+          </children>
+        </HBox>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

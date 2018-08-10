@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CourtLaw:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="56a6496c-db6b-41ce-8e2e-83b639e3be58" name="Default" comment="1.0.2&#10;&#10;这个版本我不得不说非常的重要，改变了以前的写法，我也是不得已，虽然前面分割字符串的效率好高，但是整合起来又会出问题，介于这样的考虑，我决定浪费内存，方便编码。">
+      <change afterPath="$PROJECT_DIR$/property/tree3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/InputDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/event/ProcessCallBackImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/SqlTextView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/field-map.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ProgressSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/property/tree.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/property/tree2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/beanfactory/BeanFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/beanfactory/BeanFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AspectMergeLevelFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AspectMergeLevelFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/TreeLevelResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticlePropResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/event/BasicCallbackImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/event/BasicCallbackImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/AbstractView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/AbstractView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/BaseView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/BaseView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ConnectSqlView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ConnectSqlView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/TreeStructView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/TreeStructView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ViewDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ViewDispatcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/tree-struct-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/tree-struct-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPath.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.18.6" />
+      </map>
+    </option>
+  </component>
+  <component name="Cvs2Configuration">
+    <option name="OVERRIDE_EXISTING_TAG_FOR_PROJECT" value="false" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SqlTextView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/SqlTextView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="960">
+              <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileResolver.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+              <folding>
+                <element signature="method#getFileEncode#0;class#FileResolver#0" />
+                <element signature="method#checkFileType#0;class#FileResolver#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputDatabase.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/InputDatabase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FieldMapView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+              <folding>
+                <element signature="method#selectTable#0;class#FieldMapView#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProcessCallBackImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/event/ProcessCallBackImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgressSample.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ProgressSample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProgressIndicator.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ProgressIndicator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1248">
+              <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+              <folding>
+                <element signature="e#2286#2287#0" expanded="true" />
+                <element signature="e#2330#2331#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindBugs-IDEA-Workspace">
+    <toolWindowEditorPreview>false</toolWindowEditorPreview>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>remove</find>
+      <find>Help</find>
+      <find>finsh</find>
+      <find>file</find>
+      <find>m1</find>
+      <find>del</find>
+      <find>FileRE</find>
+      <find>BeanFactory</find>
+      <find>treeItem click</find>
+      <find>createFileExclusively</find>
+      <find>getScene()</find>
+      <find>fin</find>
+      <find>save</find>
+      <find>pre</find>
+      <find>previous</find>
+      <find>next</find>
+      <find>项</find>
+      <find>stringBuilderArticle</find>
+      <find>finish</find>
+      <find>re</find>
+      <find>配置成功</find>
+      <find>starting</find>
+      <find>initialize</find>
+      <find>C</find>
+      <find>insert</find>
+      <find>listSql</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Text</replace>
+      <replace>matcher</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/basic/BasicResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/FieldDesc.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/DBUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/config/CourtAutoPropertyConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/basic/Persistence.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/ConnSqlServerResolver.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/dd.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ComboBoxSample.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/SqlTableResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/model/LevelFieldMapModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleStructModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/TableDesc.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/SqlFieldResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/view/ViewDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/BasicWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/Filter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/MergeLevelFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleNodeContextModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleNodeModel.java" />
+        <option value="$PROJECT_DIR$/src/test/java/TestAnotation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileterProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/field-map.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/anotation/Resolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/TreeLevelResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AritclePropResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/beanfactory/BeanFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/main-view.fxml" />
+        <option value="$PROJECT_DIR$/src/test/java/TestPath.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/MainResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticlePropResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterProcess.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticleFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AspectMergeLevelFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/BaseView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/MainView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ConnectSqlView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/TreeStructView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/ViewDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ddf.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ProgressSample.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/event/BasicCallbackImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/AbstractView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterChain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/InputDatabase.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/sql-text-view.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/SqlTextView.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/event/ProcessCallBackImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1615" />
+    <option name="height" value="880" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="property" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="anotation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="beanfactory" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="control" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="court" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CourtLaw" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CourtLaw" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://B:/Project/intelliJ/CourtLaw/src/main/java/com/cyl/court/util/StringUtils.java&#10;split&#9;ACTION&#9;SplitVertically&#10;JsonIO&#9;FILE&#9;file://B:/Project/intelliJ/CourtLaw/src/main/java/com/cyl/court/util/JsonIO.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="android.sdk.path" value="F:/Asdk" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../github/CourtLaw" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.35172415" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="B:\Project\intelliJ\CourtLaw\property" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\resources\static" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\resources" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\java\com\cyl\court\resource" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="com.cyl.court" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cyl.court.view" />
+      <recent name="com.cyl.court.model" />
+      <recent name="com.cyl.court.control.core" />
+      <recent name="com.cyl.court.control.sql" />
+      <recent name="com.cyl.court.config" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\java" />
+      <recent name="B:\Project\intelliJ\CourtLaw\property" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\java\com\cyl\court\util" />
+      <recent name="B:\Project\intelliJ\CourtLaw\src\main\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="ComboBoxSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="comboboxsample.ComboBoxSample" />
+      <module name="CourtLaw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="comboboxsample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cyl.court.Main" />
+      <module name="CourtLaw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+    </configuration>
+    <configuration name="ProgressSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ProgressSample" />
+      <module name="CourtLaw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="TestAnotation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestAnotation" />
+      <module name="CourtLaw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="TestPath" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TestPath" />
+      <module name="CourtLaw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestPath" />
+      <item itemvalue="Application.ComboBoxSample" />
+      <item itemvalue="Application.TestAnotation" />
+      <item itemvalue="Application.ProgressSample" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ProgressSample" />
+        <item itemvalue="Application.TestAnotation" />
+        <item itemvalue="Application.ComboBoxSample" />
+        <item itemvalue="Application.TestPath" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56a6496c-db6b-41ce-8e2e-83b639e3be58" name="Default" comment="" />
+      <created>1533305129447</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533305129447</updated>
+      <workItem from="1533305134176" duration="2752000" />
+      <workItem from="1533307926336" duration="8911000" />
+      <workItem from="1533361383547" duration="36397000" />
+      <workItem from="1533427925092" duration="44612000" />
+      <workItem from="1533515605935" duration="3977000" />
+      <workItem from="1533529368082" duration="664000" />
+      <workItem from="1533543727802" duration="1191000" />
+      <workItem from="1533544971192" duration="4593000" />
+      <workItem from="1533558101268" duration="8136000" />
+      <workItem from="1533601902039" duration="32220000" />
+      <workItem from="1533646173302" duration="1168000" />
+      <workItem from="1533688106111" duration="27082000" />
+      <workItem from="1533731359773" duration="5437000" />
+      <workItem from="1533773765252" duration="1002000" />
+      <workItem from="1533774808214" duration="22803000" />
+      <workItem from="1533802995758" duration="16000" />
+      <workItem from="1533821177794" duration="4751000" />
+      <workItem from="1533861347641" duration="1231000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1533475023182</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1533475023182</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1533475164599</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1533475164599</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1533475210354</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1533475210354</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1533475341479</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533475341479</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1533475423568</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533475423568</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1533515703547</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1533515703547</updated>
+    </task>
+    <task id="LOCAL-00007" summary="1.0.0">
+      <created>1533515761954</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1533515761954</updated>
+    </task>
+    <task id="LOCAL-00008" summary="1.0.0">
+      <created>1533516196333</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1533516196333</updated>
+    </task>
+    <task id="LOCAL-00009" summary="1.0.1">
+      <created>1533603653765</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1533603653765</updated>
+    </task>
+    <task id="LOCAL-00010" summary="1.0.2&#10;&#10;这个版本我不得不说非常的重要，改变了以前的写法，我也是不得已，虽然前面分割字符串的效率好高，但是整合起来又会出问题，介于这样的考虑，我决定浪费内存，方便编码。">
+      <created>1533715307976</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1533715307976</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="206943000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" weight="0.375731" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="JRebel Console" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="JRebel Executor" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27192983" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.12719299" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3406433" />
+      <window_info anchor="bottom" id="CheckStyle" order="8" weight="0.32748538" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.40643275" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25603217" />
+      <window_info id="JRebel" order="2" side_tool="true" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32748538" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" x="493" y="477" width="858" height="285" id="Documentation" order="9" side_tool="true" type="FLOATING" weight="0.13270777" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.1575067" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32894737" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="JRebel" order="5" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2759124" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.32956153" />
+      <window_info anchor="right" x="639" y="310" width="775" height="223" id="Documentation" order="9" side_tool="true" type="FLOATING" weight="0.3294271" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.11393229" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.34014598" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="bottom" id="JRebel Executor" order="12" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21581769" />
+      <window_info anchor="bottom" id="JRebel Console" order="13" side_tool="true" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3941606" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.0.0" />
+    <MESSAGE value="1.0.1" />
+    <MESSAGE value="1.0.2&#10;&#10;这个版本我不得不说非常的重要，改变了以前的写法，我也是不得已，虽然前面分割字符串的效率好高，但是整合起来又会出问题，介于这样的考虑，我决定浪费内存，方便编码。" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.0.2&#10;&#10;这个版本我不得不说非常的重要，改变了以前的写法，我也是不得已，虽然前面分割字符串的效率好高，但是整合起来又会出问题，介于这样的考虑，我决定浪费内存，方便编码。" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/TestForRegex.java</url>
+          <line>29</line>
+          <properties />
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/ViewDispatcher.java</url>
+          <line>86</line>
+          <properties />
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AspectMergeLevelFilter.java</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/TreeStructView.java</url>
+          <line>151</line>
+          <properties />
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="110" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>articleStruct.regex</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>1048576</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ProgressIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2064">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1584">
+          <caret line="107" column="7" lean-forward="true" selection-start-line="107" selection-start-column="7" selection-end-line="107" selection-end-column="7" />
+          <folding>
+            <element signature="method#selectTable#0;class#FieldMapView#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/SqlTextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="44" column="28" lean-forward="true" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="method#getFileEncode#0;class#FileResolver#0" />
+            <element signature="method#checkFileType#0;class#FileResolver#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/InputDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/event/ProcessCallBackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ProgressSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ProgressIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2064">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="102" column="31" lean-forward="true" selection-start-line="102" selection-start-column="31" selection-end-line="102" selection-end-column="31" />
+          <folding>
+            <element signature="method#selectTable#0;class#FieldMapView#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/SqlFieldResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ComboBoxSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="74" column="36" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/basic/Persistence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/BasicWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2976">
+          <caret line="147" column="27" selection-start-line="147" selection-start-column="27" selection-end-line="147" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/SqlTableResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1128">
+          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleNodeContextModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/Objects.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="200" column="24" selection-start-line="200" selection-start-column="24" selection-end-line="200" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestAnotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1656" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25686" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="815" column="16" selection-start-line="815" selection-start-column="16" selection-end-line="815" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/AbstractStringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="443" column="50" lean-forward="true" selection-start-line="443" selection-start-column="50" selection-end-line="443" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/StringBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="135" column="17" lean-forward="true" selection-start-line="135" selection-start-column="17" selection-end-line="135" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/anotation/Resolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleStructModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/TestPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="221" column="9" selection-start-line="221" selection-start-column="9" selection-end-line="221" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/model/ArticleNodeModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="146" column="22" selection-start-line="146" selection-start-column="22" selection-end-line="146" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1772" column="32" selection-start-line="1772" selection-start-column="32" selection-end-line="1772" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="85" column="26" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterProcess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticleFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/ArticlePropResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/AspectMergeLevelFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" column="63" lean-forward="true" selection-start-line="39" selection-start-column="63" selection-end-line="39" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/beanfactory/BeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/BaseView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/ConnectSqlView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="92" column="13" lean-forward="true" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/MainView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/ViewDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-144">
+          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/TreeStructView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="104" column="56" selection-start-line="104" selection-start-column="56" selection-end-line="104" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/AbstractView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/event/BasicCallbackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="51" lean-forward="true" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FilterChain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/javafx-src.zip!/javafx/scene/control/ProgressIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1248">
+          <caret line="86" column="11" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+          <folding>
+            <element signature="e#2286#2287#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/SqlTextView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="66" column="18" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ProgressSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/core/FileResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
+          <folding>
+            <element signature="method#getFileEncode#0;class#FileResolver#0" />
+            <element signature="method#checkFileType#0;class#FileResolver#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/event/ProcessCallBackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/view/FieldMapView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+          <folding>
+            <element signature="method#selectTable#0;class#FieldMapView#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cyl/court/control/sql/InputDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="62" column="13" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>CourtLaw:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35172415" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Detection</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35172415" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CourtLaw</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35172415" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>antlr-2.7.4</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.35172415" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

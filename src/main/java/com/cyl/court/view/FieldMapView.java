@@ -3,16 +3,13 @@ package com.cyl.court.view;
 import com.cyl.court.anotation.Resolver;
 import com.cyl.court.anotation.View;
 import com.cyl.court.beanfactory.BeanFactory;
-import com.cyl.court.control.core.TreeLevelResolver;
+import com.cyl.court.control.core.ArticlePropResolver;
 import com.cyl.court.control.sql.FieldDesc;
 import com.cyl.court.control.sql.SqlFieldResolver;
 import com.cyl.court.control.sql.SqlTableResolver;
 import com.cyl.court.control.sql.TableDesc;
 import com.cyl.court.event.BasicCallbackImpl;
 import com.cyl.court.model.ArticleStructModel;
-import com.cyl.court.util.StringUtils;
-import com.cyl.court.util.ViewUtil;
-import com.google.gson.Gson;
 
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -31,6 +28,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 @Resolver
@@ -38,10 +36,13 @@ import javafx.stage.Stage;
 public class FieldMapView extends AbstractView implements BaseView, Initializable {
 
   @FXML
-  AnchorPane fieldMap;
+  Pane fieldMap;
 
   @FXML
   ComboBox selectTable;
+
+  @FXML
+  ComboBox startMergeLevel;
 
   private TableDesc tableDesc;
 
@@ -53,7 +54,7 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
     tableDesc = sqlFieldResolver.getFieldDesc(obj.toString(), new BasicCallbackImpl());
     List<String> fields = new ArrayList<>();
     for (FieldDesc fd : tableDesc.getFieldDescList()) {
-          fields.add(fd.getName() + "\t\t" + fd.getType()+"("+ fd.getDataSize()+")");
+      fields.add(fd.getName() + "\t\t" + fd.getType() + "(" + fd.getDataSize() + ")");
     }
     for (GridPaneNode.RowNodes ns : gridPaneNode.listNodes) {
       ns.tableField.getItems().clear();
@@ -85,15 +86,27 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
   @FXML
   Button finish;
 
-  private TreeLevelResolver treeLevelResolver = BeanFactory.getBean(TreeLevelResolver.class);
+  private ArticlePropResolver propResolver = BeanFactory.getBean(ArticlePropResolver.class);
 
   @FXML
   public void finish(ActionEvent event) {
 
-    if (gridPaneNode.checkInput()) {
-      BeanFactory.getBean(TreeLevelResolver.class)
-          .uploadTreeStruct(articleStructList,new BasicCallbackImpl());
+    int mergeL = 0;
+    if(startMergeLevel.getValue() != null){
+      mergeL = Integer.parseInt(startMergeLevel.getValue().toString());
     }
+    propResolver.uploadMergeLevel(mergeL);
+
+    //先载入数据
+    gridPaneNode.loadData(articleStructList);
+
+    propResolver.uploadTreeStruct(articleStructList, new BasicCallbackImpl() {
+      @Override
+      public <T> void success(T t) {
+        super.success("配置成功");
+        getStage().close();
+      }
+    });
 
     System.out.println("finish");
 
@@ -114,7 +127,7 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
 
   private SqlTableResolver sqlTableResolver = BeanFactory.getBean(SqlTableResolver.class);
 
-  private  List<ArticleStructModel> articleStructList;
+  private List<ArticleStructModel> articleStructList;
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -123,14 +136,20 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
     //获取所有表名
     selectTable.getItems().addAll(sqlTableResolver.getTablesName(new BasicCallbackImpl()));
 
-    articleStructList = treeLevelResolver.getArticleStructList(new BasicCallbackImpl());
+    articleStructList = propResolver.getArticleStructList(new BasicCallbackImpl());
+
     //获取上次的树结构
     for (ArticleStructModel articleStructModel : articleStructList) {
       gridPaneNode.newRowNodes(articleStructModel, null);
+      startMergeLevel.getItems().add(articleStructModel.getLevel());
     }
 
   }
 
+  @Override
+  public Pane getRootPane() {
+    return fieldMap;
+  }
 
   class GridPaneNode {
 
@@ -151,7 +170,7 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
 
         articleStruct.setTableField(
             selectTable.getSelectionModel().getSelectedItem() + "." +
-                tableField.getSelectionModel().getSelectedItem());
+                tableField.getSelectionModel().getSelectedItem().toString().split("\t\t")[0]);
 
       }
 
@@ -201,29 +220,16 @@ public class FieldMapView extends AbstractView implements BaseView, Initializabl
       num++;
     }
 
-    public boolean checkInput() {
-      for (Node node : propGridPane.getChildren()) {
-        if (node instanceof TextField) {
-          String data = ((TextField) node).getText();
-          if (StringUtils.isEmpty(data)) {
-            ViewUtil.f_alert_informationDialog("提示", "亲，还有字段没有输入");
-            node.requestFocus();
-            return false;
-          }
-        }
-      }
-      return true;
-    }
 
     public void loadData(List<ArticleStructModel> articleStructModelList) {
 
       //排序
       articleStructModelList.sort((e1, e2) -> {
-        return Integer.parseInt(e1.getLevel()) > Integer.parseInt(e2.getLevel()) ? -1 : 1;
+        return Integer.parseInt(e1.getLevel()) < Integer.parseInt(e2.getLevel()) ? -1 : 1;
       });
 
       listNodes.sort((e1, e2) -> {
-        return Integer.parseInt(e1.label.getText()) > Integer.parseInt(e2.label.getText()) ? -1 : 1;
+        return Integer.parseInt(e1.label.getText()) < Integer.parseInt(e2.label.getText()) ? -1 : 1;
       });
 
       //加载数据

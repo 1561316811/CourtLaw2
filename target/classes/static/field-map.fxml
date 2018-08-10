@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="fieldMap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.FieldMapView">
+  <children>
+    <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <Button id="pre" fx:id="previous" mnemonicParsing="false" onAction="#previous" text="previous" />
+            <Button fx:id="finish" mnemonicParsing="false" onAction="#finish" text="finish">
+              <HBox.margin>
+                <Insets left="10.0" right="10.0" />
+              </HBox.margin>
+            </Button>
+            <Button id="cancle" fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="cancle" />
+          </children>
+          <padding>
+            <Insets right="20.0" />
+          </padding>
+          <BorderPane.margin>
+            <Insets bottom="20.0" />
+          </BorderPane.margin>
+        </HBox>
+      </bottom>
+      <top>
+        <VBox alignment="TOP_CENTER" fillWidth="true" prefHeight="-1.0" prefWidth="-1.0">
+          <children>
+            <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
+              <children>
+                <HBox alignment="CENTER" prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS">
+                  <children>
+                    <Label text="表字段映射配置" textAlignment="LEFT">
+                      <font>
+                        <Font size="20.0" />
+                      </font>
+                      <HBox.margin>
+                        <Insets bottom="20.0" />
+                      </HBox.margin>
+                    </Label>
+                  </children>
+                </HBox>
+              </children>
+              <padding>
+                <Insets left="20.0" right="20.0" />
+              </padding>
+            </HBox>
+            <FlowPane prefHeight="-1.0" prefWidth="-1.0">
+              <children>
+                <ComboBox id="checkTable" fx:id="selectTable" onAction="#selectTable" prefWidth="-1.0" promptText="选择表" style="">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList" />
+                  </items>
+                  <FlowPane.margin>
+                    <Insets left="20.0" right="20.0" />
+                  </FlowPane.margin>
+                </ComboBox>
+                <ComboBox fx:id="startMergeLevel" promptText="选择开始合并等级">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList" />
+                  </items>
+                </ComboBox>
+              </children>
+              <VBox.margin>
+                <Insets />
+              </VBox.margin>
+            </FlowPane>
+            <GridPane fx:id="propGridPane" alignment="CENTER" disable="false" focusTraversable="false" gridLinesVisible="true" hgap="0.0" prefHeight="-1.0" prefWidth="659.0" visible="true" VBox.vgrow="NEVER">
+              <children>
+                <Label alignment="TOP_LEFT" contentDisplay="CENTER" graphicTextGap="4.0" text="序号" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                <Label text="名称" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                <Label text="字段" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="60.0" minWidth="-Infinity" percentWidth="-1.0" prefWidth="30.0" />
+                <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="200.0" minWidth="-Infinity" percentWidth="-1.0" prefWidth="100.0" />
+                <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" percentWidth="-1.0" prefWidth="-1.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints fillHeight="false" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" valignment="CENTER" vgrow="ALWAYS" />
+              </rowConstraints>
+              <VBox.margin>
+                <Insets left="20.0" right="20.0" top="10.0" />
+              </VBox.margin>
+            </GridPane>
+          </children>
+          <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+          </padding>
+        </VBox>
+      </top>
+    </BorderPane>
+  </children>
+  <padding>
+    <Insets />
+  </padding>
+</AnchorPane>

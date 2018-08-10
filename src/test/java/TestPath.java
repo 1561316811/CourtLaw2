@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 
 import javafx.scene.Node;
 
-public class TestPath implements BaseView {
+public class TestPath {
 
     int i;
 
@@ -13,7 +13,7 @@ public class TestPath implements BaseView {
 
     public static void main(String[] args) {
 
-        new TestPath().getStage();
+//        new TestPath().getStage();
 
 
 

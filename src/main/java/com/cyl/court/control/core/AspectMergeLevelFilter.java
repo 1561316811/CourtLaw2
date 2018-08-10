@@ -4,7 +4,11 @@ import com.cyl.court.model.ArticleNodeContextModel;
 import com.cyl.court.model.ArticleNodeModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
 public class AspectMergeLevelFilter implements ArticleFilter {
 
@@ -27,52 +31,71 @@ public class AspectMergeLevelFilter implements ArticleFilter {
   @Override
   public void doFilter(ArticleNodeContextModel articleNode) {
     if (startLevel <= 0) return;
-//    merge(articleNode);
-  }
+    System.out.println(AspectMergeLevelFilter.class.getSimpleName() + " is starting ");
+    //先找到该层所有的父节点
+    Queue<ArticleNodeContextModel> queue = new LinkedList();
 
-  private String merge(ArticleNodeContextModel contextRoot) {
+    queue.offer(articleNode);
 
-    if (contextRoot.getLevel() < startLevel - 1) {
-      for (ArticleNodeContextModel childNode : contextRoot.getChildren())
-        merge(contextRoot);
-    } else if (contextRoot.getChildren().isEmpty()) {
-      return contextRoot.getContext();
-    } else {
-      StringBuilder sb = new StringBuilder();
-      ArticleNodeContextModel newChildNode = new ArticleNodeContextModel();
-      newChildNode.setParent(contextRoot);
-      newChildNode.setLevel(contextRoot.getLevel() + 1);
-      for (ArticleNodeContextModel childNode : contextRoot.getChildren()) {
-        sb.append(merge(childNode));
-      }
-      contextRoot.getChildren().clear();
-      contextRoot.getChildren().add(newChildNode);
-    }
-
-    if (contextRoot.getChildren().isEmpty()) {
-
-    }
-
-    if (contextRoot.getChildren().isEmpty()) {
-      if (contextRoot.getLevel() >= startLevel) {
-        return contextRoot.getContext();
-      }
-      return null;
-    } else {
-
-
-      StringBuilder sb = new StringBuilder();
-      for (ArticleNodeContextModel childNode : contextRoot.getChildren()) {
-
-        if (childNode.getLevel() >= startLevel) {
-          ArticleNodeContextModel newChildNode = new ArticleNodeContextModel();
-
-          sb.append(merge(childNode));
+    List<ArticleNodeContextModel> listFatherNodes = new ArrayList<>();
+    boolean isGetNodes = false;
+    while (!queue.isEmpty()) {
+      ArticleNodeContextModel node = queue.poll();
+      for (ArticleNodeContextModel n : node.getChildren()) {
+        if (node.getLevel() < startLevel - 1) {
+          queue.offer(n);
+        } else if (node.getLevel() == startLevel - 1) {
+          listFatherNodes.add(node);
         } else {
-
+          isGetNodes = true;
         }
       }
+      if (isGetNodes)
+        break;
     }
-    return null;
+
+    for (ArticleNodeContextModel listFatherNode : listFatherNodes) {
+      merge(listFatherNode);
+    }
+
+  }
+
+  private void merge(ArticleNodeContextModel contextRoot) {
+
+    Queue<ArticleNodeContextModel> queue = new LinkedList();
+    List<ArticleNodeContextModel> childNodes = new ArrayList<>();
+    queue.offer(contextRoot);
+
+    while (!queue.isEmpty()) {
+      ArticleNodeContextModel node = queue.poll();
+      for (ArticleNodeContextModel n : node.getChildren()) {
+        queue.offer(n);
+        childNodes.add(n);
+      }
+    }
+
+    Map<Integer, ArticleNodeContextModel> maps = new HashMap<>();
+
+    //init
+    for (ArticleNodeContextModel childNode : childNodes) {
+      int startLevel = childNode.getLevel();
+      if (maps.get(startLevel) == null) {
+        maps.put(startLevel, new ArticleNodeContextModel());
+      }
+      ArticleNodeContextModel a = maps.get(startLevel);
+      a.setLevel(startLevel);
+      a.setContext((a.getContext() == null ? "" : a.getContext()) + childNode.getContext());
+    }
+
+    ArticleNodeContextModel parent = contextRoot;
+    for(int i = startLevel;;i++){
+      if(maps.get(i) == null)
+        break;
+      parent.getChildren().clear();
+      parent.getChildren().add(maps.get(i));
+      maps.get(i).setParent(parent);
+      parent = maps.get(i);
+    }
+
   }
 }

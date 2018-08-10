@@ -1,1 +1,0 @@
-[{"level":"1","titleName":"标题一","regex":"\\s\\d\\.\\d\\s","tableField":null,"color":"0xffffffff"},{"level":"2","titleName":"标题二","regex":"\\s\\d\\.\\d\\.\\d\\s","tableField":null,"color":"0xffffffff"},{"level":"3","titleName":"标题三","regex":"\\s\\d\\.\\d\\.\\d\\.\\d\\s","tableField":null,"color":"0xffffffff"}]

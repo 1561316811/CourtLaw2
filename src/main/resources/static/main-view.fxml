@@ -8,7 +8,7 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" disable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.MainView">
+<AnchorPane id="AnchorPane" fx:id="rootPane" disable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="com.cyl.court.view.MainView">
   <children>
     <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -39,6 +39,11 @@
         </MenuBar>
         <HBox alignment="TOP_RIGHT" prefHeight="-1.0" prefWidth="-1.0">
           <children>
+            <Button fx:id="generateSql" mnemonicParsing="false" onAction="#generateSql" text="generate sql">
+              <HBox.margin>
+                <Insets right="10.0" />
+              </HBox.margin>
+            </Button>
             <Button fx:id="resolve" graphicTextGap="0.0" mnemonicParsing="false" onAction="#resolve" text="Run" HBox.hgrow="NEVER" />
           </children>
           <VBox.margin>

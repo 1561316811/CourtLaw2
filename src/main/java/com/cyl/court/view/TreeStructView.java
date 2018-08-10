@@ -3,7 +3,7 @@ package com.cyl.court.view;
 import com.cyl.court.anotation.Resolver;
 import com.cyl.court.anotation.View;
 import com.cyl.court.beanfactory.BeanFactory;
-import com.cyl.court.control.core.TreeLevelResolver;
+import com.cyl.court.control.core.ArticlePropResolver;
 import com.cyl.court.event.BasicCallbackImpl;
 import com.cyl.court.model.ArticleStructModel;
 import com.cyl.court.util.StringUtils;
@@ -95,13 +95,13 @@ public class TreeStructView extends AbstractView implements BaseView, Initializa
   @FXML
   Button next;
 
-  private TreeLevelResolver treeLevelResolver = BeanFactory.getBean(TreeLevelResolver.class);
+  private ArticlePropResolver treeLevelResolver = BeanFactory.getBean(ArticlePropResolver.class);
 
   @FXML
   public void next(ActionEvent event) {
 
     if (gridPaneNode.checkInput()) {
-      BeanFactory.getBean(TreeLevelResolver.class)
+      BeanFactory.getBean(ArticlePropResolver.class)
           .uploadTreeStruct(gridPaneNode.getData(), new BasicCallbackImpl(){
             @Override
             public <T> void fail(T t) {
@@ -111,6 +111,11 @@ public class TreeStructView extends AbstractView implements BaseView, Initializa
 
             @Override
             public <T> void success(T t) {
+              if( BeanFactory.isExist(FieldMapView.class)){
+                levelProp.getScene().setRoot(
+                    BeanFactory.getBean(FieldMapView.class).getRootPane());
+                return ;
+              }
               Pane pane = ViewDispatcher.loadFxml(FieldMapView.class);
               levelProp.getScene().setRoot(pane);
             }
@@ -143,6 +148,8 @@ public class TreeStructView extends AbstractView implements BaseView, Initializa
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     BeanFactory.hostBean(this);
+    //只要是先启动这个界面那么就优先加载这个界面
+//    this.getBasicWindow().getScene().setRoot(propGridPane);
 
     List<ArticleStructModel> articleStructS =
         treeLevelResolver.getArticleStructList(new BasicCallbackImpl());
@@ -152,6 +159,11 @@ public class TreeStructView extends AbstractView implements BaseView, Initializa
         gridPaneNode.newRowNodes(articleStruct);
       }
 
+  }
+
+  @Override
+  public Pane getRootPane() {
+    return levelProp;
   }
 
   class GridPaneNode {

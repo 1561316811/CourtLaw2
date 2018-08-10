@@ -3,6 +3,7 @@ package com.cyl.court.control.core;
 import com.cyl.court.anotation.Resolver;
 import com.cyl.court.beanfactory.BeanFactory;
 import com.cyl.court.config.CourtAutoFileConfig;
+import com.cyl.court.control.sql.InputDatabase;
 import com.cyl.court.event.BasicCallbackImpl;
 import com.cyl.court.event.Callback;
 import com.cyl.court.model.ArticleNodeModel;
@@ -12,6 +13,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -35,6 +37,23 @@ public class FileResolver {
     private StringBuilder stringBuilderArticle;
 
     private FilterProcess filterProcess = new FilterProcess();
+
+    private InputDatabase inputDatabase = BeanFactory.getBean(InputDatabase.class);
+
+    public void insertToDataBase(List<String> sqlList, Callback callback){
+        try {
+            inputDatabase.insert(sqlList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            callback.fail(e.getMessage());
+        }
+        callback.success("执行成功");
+    }
+
+    public List<String> generateSql(Callback callback){
+        return inputDatabase.createSqlStatement(articleNode, treeLevelResolver.getArticleStructList(callback),
+            stringBuilderArticle.toString());
+    }
 
     public void readFile(String fileName, Callback callback) {
 
@@ -113,8 +132,10 @@ public class FileResolver {
                         .getType()).contains(fileType.toLowerCase());
     }
 
-    private TreeLevelResolver treeLevelResolver = BeanFactory.getBean(TreeLevelResolver.class);
+    private ArticlePropResolver treeLevelResolver = BeanFactory.getBean(ArticlePropResolver.class);
 
+
+    ArticleNodeModel articleNode;
     /**
      *
      * @return
@@ -155,8 +176,13 @@ public class FileResolver {
         splitArticle(structList, 0,
                 article, articleNode);
 
+        //初始化过滤器
+        filterProcess.init();
         articleNode = filterProcess.doFilter(articleNode, sb);
 
+        this.articleNode = articleNode;
+
+        this.stringBuilderArticle = sb;
         return articleNode;
     }
 
